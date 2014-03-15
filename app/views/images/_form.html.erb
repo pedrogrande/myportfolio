@@ -1,0 +1,21 @@
+<%= simple_form_for(@image) do |f| %>
+  <%= f.error_notification %>
+
+  <% if !@image.image.blank? %>
+    <%= image_tag @image.image, width: '100px' %>
+  <% end %>
+  <div class="form-group">
+    <%= f.input :image, as: :file %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.input :caption, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.association :project, input_html: { class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.button :submit %>
+  </div>
+<% end %>
